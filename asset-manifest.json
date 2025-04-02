@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/epoch-time-converter/static/css/main.946fc8b9.css",
+    "main.js": "/epoch-time-converter/static/js/main.ee119770.js",
+    "static/js/453.9c3549b4.chunk.js": "/epoch-time-converter/static/js/453.9c3549b4.chunk.js",
+    "index.html": "/epoch-time-converter/index.html",
+    "main.946fc8b9.css.map": "/epoch-time-converter/static/css/main.946fc8b9.css.map",
+    "main.ee119770.js.map": "/epoch-time-converter/static/js/main.ee119770.js.map",
+    "453.9c3549b4.chunk.js.map": "/epoch-time-converter/static/js/453.9c3549b4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.946fc8b9.css",
+    "static/js/main.ee119770.js"
+  ]
+}
