@@ -13,10 +13,16 @@ const EpochTimeConverter = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const normalizeEpoch = (epoch) => {
+    const epochStr = epoch.toString();
+    return epochStr.length > 10 ? epoch : epoch * 1000;
+  };
+
   // Helper: Format date for display in different timezones.
   const formatDateForTimezone = (epoch, timezone) => {
     try {
-      const date = new Date(epoch * 1000);
+      const normalizedEpoch = normalizeEpoch(epoch);
+      const date = new Date(normalizedEpoch);
       return date.toLocaleString('en-US', {
         timeZone: timezone,
         weekday: 'long',
@@ -47,7 +53,8 @@ const EpochTimeConverter = () => {
   // Safely get UTC string
   const safeUTCString = (epoch) => {
     try {
-      return new Date(epoch * 1000).toUTCString();
+      const normalizedEpoch = normalizeEpoch(epoch);
+      return new Date(normalizedEpoch).toUTCString();
     } catch (e) {
       return "Invalid date";
     }
@@ -147,20 +154,15 @@ const EpochTimeConverter = () => {
           </div>
         </div>
       </div>
-      {/* <div className="bg-gray-900 p-4 rounded-lg">
-        <p className="text-sm mb-2"><b className='text-yellow-400'>What is Epoch Time? </b>
-          Epoch time is the number of seconds that have elapsed since January 1, 1970 (UTC).
-        </p>
-      </div> */}
 
-        <footer className="fixed bottom-0 left-0 w-full bg-gray-800 py-2 text-center text-gray-500 text-sm">
+      <footer className="fixed bottom-0 left-0 w-full bg-gray-800 py-2 text-center text-gray-500 text-sm">
         <p>
-            Epoch Converter Utility – feel free to add to the project on{' '}
-            <a href="https://github.com/isaac-rnd/epoch-time-converter" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+          Epoch Converter Utility – feel free to add to the project on{' '}
+          <a href="https://github.com/isaac-rnd/epoch-time-converter" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
             GitHub ಬೆಂಗಳೂರು❤️
-            </a>
+          </a>
         </p>
-        </footer>
+      </footer>
     </div>
   );
 };
